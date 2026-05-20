@@ -80,4 +80,6 @@ If the extension changes in a way that affects privacy, this policy will be upda
 
 ## Contact
 
-For questions about this privacy policy, use the public GitHub repository issue tracker once the repository is available.
+For questions about this privacy policy, use the public GitHub repository issue tracker:
+
+https://github.com/Nomiveb/open-on-map-google-search/issues

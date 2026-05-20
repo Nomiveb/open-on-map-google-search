@@ -1,60 +1,61 @@
 # Open on Map for Google Search
 
-A small open-source browser extension that adds an **Open on map** button to Google Search when a place, address, business, city, or map card appears in the results.
+Open on Map for Google Search is a small browser extension that adds an **Open on map** button to Google Search location results.
 
-Instead of looking around the Google Search page for the right Maps link, you get one clear button that opens the location in Google Maps.
+When Google Search shows a place, address, business, city, or map card, the extension gives you one clear button that opens the same location in Google Maps.
+
+![Open on map button on a Google Search place result](screenshots/google-search-place-button.png)
+
+## Why It Exists
+
+Google Search often already shows the exact location you need, but opening that result in Google Maps is not always one click away.
+
+This extension fixes that small daily problem.
 
 ## What It Does
 
-When Google Search shows a location result, the extension adds a button like:
-
-```text
-Open on map
-```
-
-Clicking the button opens Google Maps in a new tab for that place.
-
-It can work with several common Google Search layouts:
-
-- right-side knowledge panels
-- local business results
-- address cards
-- mini map cards
-- city or place information blocks
-
-## Why I Built It
-
-Google Search often already knows the exact place you are looking at, but opening it in Maps is not always one click away.
-
-This extension fixes that small daily annoyance.
-
-It is intentionally simple: no account, no ads, no tracking, no dashboard, no extra product layer. Just a button that saves a click.
+- Adds an **Open on map** button to supported Google Search location results.
+- Opens Google Maps in a new tab.
+- Works with common location layouts such as knowledge panels, address cards, city cards, business results, and mini map cards.
+- Runs locally in your browser.
 
 ## Privacy
 
 This extension does not collect personal data.
 
-It does not send your searches, browsing history, clicks, or location data to the developer.
-
-The extension runs locally in your browser. When you click **Open on map**, your browser opens Google Maps with the place name or coordinates that were already visible or available on the Google Search page.
+It does not track searches, browsing history, clicks, location history, cookies, or account information. It has no analytics, no ads, no backend, and no remote logging.
 
 Full policy: [PRIVACY_POLICY.md](PRIVACY_POLICY.md)
 
-## Open Source
+## Screenshots
 
-This project is open source so anyone can inspect what the extension does.
+### Google Search Place Result
 
-That matters because browser extensions run inside pages you visit. The code should be readable, boring, and easy to verify.
+![Open on map button on a business result](screenshots/google-search-place-button.png)
 
-There is no minified bundle, no hidden backend, and no remote code loading.
+### Google Search City Result
 
-## Install Manually
+![Open on map button on a city result](screenshots/google-search-city-button.png)
+
+### Google Search Address Result
+
+![Open on map button on an address result](screenshots/google-search-address-button.png)
+
+### Google Maps Result After Opening
+
+![Google Maps opened from the extension button](screenshots/google-maps-place-result.png)
+
+## Install
+
+The extension is not yet published in the Chrome Web Store or Firefox Add-ons store.
+
+Until store publishing is complete, install it manually from this repository.
 
 ### Chrome
 
 1. Download or clone this repository.
 2. Open `chrome://extensions/`.
-3. Turn on **Developer mode**.
+3. Enable **Developer mode**.
 4. Click **Load unpacked**.
 5. Select this project folder.
 6. Open Google Search and search for a place.
@@ -71,53 +72,44 @@ There is no minified bundle, no hidden backend, and no remote code loading.
 
 Try:
 
-- `Expo XXI`
-- `Zlota 44`
 - `Eiffel Tower`
 - `Warsaw Central Station`
+- `Fort Lauderdale`
+- `Zlota 44`
 - `restaurants near me`
 
-If Google Search shows a location-style result, the extension should add an **Open on map** button.
-
-## Browser Store Status
-
-Planned:
-
-- Chrome Web Store
-- Firefox Add-ons
-
-Until the extension is published in the stores, it can be installed manually from this repository.
+If Google Search shows a supported location result, the extension should add an **Open on map** button.
 
 ## Permissions
 
 The extension runs only on supported Google Search result pages.
 
-It needs access to those pages so it can detect visible location blocks and add the button.
+It needs access to those pages so it can detect visible location blocks and add the button. It does not use permissions to collect user data.
 
-It does not use permissions to collect data.
+## Limitations
 
-## How It Works
+Google Search changes its page layout over time. If Google changes a location layout, the button may not appear on that specific result until the extension is updated.
 
-The extension uses one content script:
+## Project
 
-```text
-content.js
-```
+Public repository:
 
-It looks for location signals on Google Search pages, such as map links, address blocks, coordinates, and place titles. When it detects a location, it builds a Google Maps URL and inserts an **Open on map** button into the page.
+https://github.com/Nomiveb/open-on-map-google-search
 
-There is no build system and no runtime dependency.
-
-## Project Files
+Main files:
 
 ```text
 manifest.json       extension configuration
 content.js          location detection and button injection
 styles.css          button styling
 icons/              extension icons
+screenshots/        real product screenshots
 PRIVACY_POLICY.md   privacy policy
-create_icons.py     helper script for icon generation
+LICENSE             open-source license
+create_icons.py     icon generation helper
 ```
+
+There is no build system and no runtime dependency. The extension source is readable directly from the repository.
 
 ## Development
 
@@ -125,7 +117,7 @@ After changing the code:
 
 1. Reload the extension in the browser.
 2. Hard-refresh the Google Search tab.
-3. Test a few location searches.
+3. Test several location searches.
 
 To regenerate icons:
 
@@ -134,8 +126,12 @@ pip install Pillow
 python create_icons.py
 ```
 
+To create a store package:
+
+```powershell
+Compress-Archive -Path manifest.json,content.js,styles.css,icons,README.md,PRIVACY_POLICY.md,LICENSE,create_icons.py -DestinationPath open-on-map-google-search-1.0.0-store.zip -Force
+```
+
 ## License
 
-No license has been added yet.
-
-If you want this to be formally open source, add a license file before publishing widely. MIT is a common simple option for small browser extensions.
+MIT License. See [LICENSE](LICENSE).
