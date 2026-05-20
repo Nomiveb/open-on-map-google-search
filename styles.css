@@ -1,0 +1,182 @@
+/* ========================================
+   Open on Map — Chrome Extension Styles
+   Matches Google's knowledge panel UI
+   ======================================== */
+
+/* Main button — styled like Google's action buttons (Website, Directions, etc.) */
+.open-on-map-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 100px;
+  border: 1px solid #46bd31;
+  background: #46bd31;
+  color: #000000 !important;
+  font-family: 'Google Sans', Roboto, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+  line-height: 20px;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.open-on-map-btn:hover {
+  background: #3eab2a;
+  border-color: #3eab2a;
+}
+
+.open-on-map-btn:active {
+  background: #369624;
+}
+
+.open-on-map-btn:focus-visible {
+  outline: 2px solid #46bd31;
+  outline-offset: 2px;
+}
+
+/* Map icon inside the button */
+.open-on-map-btn .map-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* ---- Light mode overrides ---- */
+@media (prefers-color-scheme: light) {
+
+  /* Green button looks good in light mode too, so we keep the base colors. Only update focus if needed. */
+  .open-on-map-btn:focus-visible {
+    outline-color: #46bd31;
+  }
+}
+
+/* ---- Container for the button ---- */
+.open-on-map-container {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+/* When placed among Google's action chips row */
+.open-on-map-chip-container {
+  display: inline-flex;
+  margin-left: 0;
+  margin-right: 8px;
+}
+
+.open-on-map-chip-container a.n1obkb {
+  background-color: #46bd31 !important;
+  border-color: #46bd31 !important;
+  color: #000000 !important;
+  border-radius: 100px !important;
+  overflow: hidden !important;
+}
+
+.open-on-map-chip-container a.n1obkb:hover {
+  background-color: #3eab2a !important;
+  border-color: #3eab2a !important;
+}
+
+.open-on-map-chip-container .o7nARe.K4LyVe,
+.open-on-map-chip-container .aSAiSd {
+  color: #000000 !important;
+}
+
+/* Button variant for inline map panels (bottom area) */
+.open-on-map-btn--inline {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 14px;
+  background: rgba(138, 180, 248, 0.1);
+  border-color: rgba(138, 180, 248, 0.3);
+}
+
+.open-on-map-btn--inline:hover {
+  background: rgba(138, 180, 248, 0.2);
+  border-color: #8ab4f8;
+}
+
+@media (prefers-color-scheme: light) {
+  .open-on-map-btn--inline {
+    background: rgba(26, 115, 232, 0.06);
+    border-color: rgba(26, 115, 232, 0.2);
+  }
+
+  .open-on-map-btn--inline:hover {
+    background: rgba(26, 115, 232, 0.12);
+    border-color: #1a73e8;
+  }
+}
+
+/* Share-style variant — for street/address card, left of Share button */
+.open-on-map-btn--share-style {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  padding: 0 8px !important;
+  border: none !important;
+  background: none !important;
+  animation: none !important;
+  line-height: normal !important;
+  cursor: pointer;
+}
+
+.open-on-map-share-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #46bd31;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.open-on-map-btn--share-style:hover .open-on-map-share-circle {
+  background: #3eab2a;
+  transform: scale(1.08);
+}
+
+.open-on-map-share-label {
+  font-family: 'Google Sans', Roboto, Arial, sans-serif;
+  font-size: 12px;
+  color: #bdc1c6;
+  white-space: nowrap;
+}
+
+.open-on-map-btn--share-style .map-icon {
+  width: 22px;
+  height: 22px;
+  color: #000;
+}
+
+@media (prefers-color-scheme: light) {
+  .open-on-map-share-label {
+    color: #5f6368;
+  }
+}
+
+/* Pulse animation on inject */
+@keyframes mapBtnFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.open-on-map-btn {
+  animation: mapBtnFadeIn 0.3s ease-out;
+}

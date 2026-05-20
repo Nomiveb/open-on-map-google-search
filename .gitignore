@@ -1,0 +1,18 @@
+# Python virtual environment
+venv/
+.venv/
+env/
+.env/
+
+# Extension icons (if generated via script)
+# icons/
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# IDE specific
+.vscode/
+.idea/
+open-on-map-google-search-1.0.0-store.zip
+AGENTS.md
