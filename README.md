@@ -4,7 +4,7 @@ Open on Map for Google Search is a small browser extension that adds an **Open o
 
 When Google Search shows a place, address, business, city, or map card, the extension gives you one clear button that opens the same location in Google Maps.
 
-![Open on map button on a Google Search place result](screenshots/google-search-place-button.png)
+![Open on map button on a Google Search place result](screenshots/first.png)
 
 ## Why It Exists
 
@@ -33,17 +33,32 @@ Full policy: [PRIVACY_POLICY.md](PRIVACY_POLICY.md)
 
 ![Open on map button on a business result](screenshots/google-search-place-button.png)
 
+### Place After opening
+
+![Google Maps opened place](screenshots/google-maps-place-result.png)
+
+
+
 ### Google Search City Result
 
 ![Open on map button on a city result](screenshots/google-search-city-button.png)
+
+### City After opening
+
+![Google Maps opened city](screenshots/google-maps-city-result.png)
+
+
 
 ### Google Search Address Result
 
 ![Open on map button on an address result](screenshots/google-search-address-button.png)
 
-### Google Maps Result After Opening
+### Adress After Opening
 
-![Google Maps opened from the extension button](screenshots/google-maps-place-result.png)
+![Google Maps opened adress](screenshots/google-maps-address-result.png)
+
+
+
 
 ## Install
 
